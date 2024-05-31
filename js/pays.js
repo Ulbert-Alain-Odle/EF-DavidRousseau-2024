@@ -56,7 +56,7 @@
     }
 
     // Add event listeners to pays buttons
-    let boutons = document.querySelectorAll(".bouton_filtre");
+    let boutons = document.querySelectorAll(".bouton_filtre_pays");
     boutons.forEach(function (bouton) {
         bouton.addEventListener('click', function () {
             let categorie = bouton.innerText;
