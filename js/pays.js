@@ -31,9 +31,18 @@
                     let carte = document.createElement("div");
                     carte.classList.add("restapi__carte__pays");
                     //carte.classList.add("carte");
+
+                    if ( has_post_thumbnail() ) {
+                        $img = the_post_thumbnail();
+                    }else{
+                        $img = '<img src="https://gftnth00.mywhc.ca/tim24/wp-content/uploads/2021/04/paris.jpg" alt="paris">';
+                    
+                    }
+
                     carte.innerHTML = `
                         <h2><a href="${lien}">${titre}</a</h2>
                         <div class="contenu__restapi__pays">
+                        ${$img}
                         <p>${contenu}</p>
                         </div>
                         
