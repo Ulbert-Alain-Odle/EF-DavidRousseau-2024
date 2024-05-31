@@ -16,7 +16,7 @@
             .then(function (data) {
                 console.log(data);
                 console.log(pays);
-                let restapiPays = document.querySelector(".contenu__restapi__pays");
+                let restapiPays = document.querySelector(".contenue_pays");
                 restapiPays.innerHTML = ''; // Clear previous content
                 data.forEach(function (article) {
                     console.log(article.acf + " " + article.data);
@@ -31,7 +31,9 @@
                     // Obtenir le thumbnail de l'article, ou utiliser une image par défaut
                     let $img = article._embedded && article._embedded['wp:featuredmedia'] 
                         ? article._embedded['wp:featuredmedia'][0].source_url 
-                        : 'https://gftnth00.mywhc.ca/tim24/wp-content/uploads/2021/06/placeholder.png';
+                        : 'https://via.placeholder.com/150';
+
+                    //L'image et le site de l'image renvoi à une erreur 504
 
                     carte.innerHTML = `
                         <h2><a href="${lien}">${titre}</a></h2>

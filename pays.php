@@ -37,24 +37,24 @@ add_action('wp_enqueue_scripts', 'eddym_enqueue');
 function creation_destinations_pays(){
     $contenu =
     '
-    <div class="boutons_filtre_pays">
-        <button class="bouton_filtre">France</button>
-        <button class="bouton_filtre">État-Unis</button>
-        <button class="bouton_filtre">Canada</button>
-        <button class="bouton_filtre">Argentine</button>
-        <button class="bouton_filtre">Chili</button>
-        <button class="bouton_filtre">Belgique</button>
-        <button class="bouton_filtre">Maroc</button>
-        <button class="bouton_filtre">Mexique</button>
-        <button class="bouton_filtre">Japon</button>
-        <button class="bouton_filtre">Italie</button>
-        <button class="bouton_filtre">Islande</button>
-        <button class="bouton_filtre">Chine</button>
-        <button class="bouton_filtre">Grèce</button>
-        <button class="bouton_filtre">Suisse</button>
+    <div class="boutons_filtre_pays_content">
+        <button class="bouton_filtre_pays">France</button>
+        <button class="bouton_filtre_pays">État-Unis</button>
+        <button class="bouton_filtre_pays">Canada</button>
+        <button class="bouton_filtre_pays">Argentine</button>
+        <button class="bouton_filtre_pays">Chili</button>
+        <button class="bouton_filtre_pays">Belgique</button>
+        <button class="bouton_filtre_pays">Maroc</button>
+        <button class="bouton_filtre_pays">Mexique</button>
+        <button class="bouton_filtre_pays">Japon</button>
+        <button class="bouton_filtre_pays">Italie</button>
+        <button class="bouton_filtre_pays">Islande</button>
+        <button class="bouton_filtre_pays">Chine</button>
+        <button class="bouton_filtre_pays">Grèce</button>
+        <button class="bouton_filtre_pays">Suisse</button>
     </div>
     
-    <div class="contenu__restapi__pays">
+    <div class="contenue_pays">
     </div>';
     return $contenu;
 }

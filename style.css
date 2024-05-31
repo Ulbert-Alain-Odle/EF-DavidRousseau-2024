@@ -7,10 +7,48 @@
 
 .restapi__carte__pays {
   flex: 1 0 250px;
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+}
+
+.contenu__restapi__pays {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  display: flex;
 }
 
 #rest {
   display: flex;
   justify-content: center;
   padding: 3rem;
+}
+
+.contenu__restapi__pays img {
+  width: 10vw;
+  height: 10vw;
+}
+
+.contenue_pays {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.bouton_filtre_pays {
+  font-size: small;
+  width: fit-content;
+  height: fit-content;
+  margin: 1vw;
+}
+
+.boutons_filtre_pays_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }/*# sourceMappingURL=style.css.map */
