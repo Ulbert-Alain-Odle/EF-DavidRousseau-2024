@@ -2,8 +2,9 @@
     console.log("rest API_pays")
 
     // Function to fetch data based on category
-    function fetchData(category) {
-        let url = `https://gftnth00.mywhc.ca/tim24/wp-json/wp/v2/posts?categories=?s${category}`;
+    // get toute les postes qui on la variable pays dans leur nom
+    function fetchData(pays) {
+        let url = `https://gftnth00.mywhc.ca/tim24/wp-json/wp/v2/posts?search=${pays}`;
         fetch(url)
             .then(function (response) {
                 if (!response.ok) {
@@ -15,7 +16,7 @@
             })
             .then(function (data) {
                 console.log(data);
-                console.log(category);
+                console.log(pays);
                 let restapi = document.querySelector(".contenu__restapi__pays");
                 //let restapiTitle = document.querySelector(".rest-API-title")
                 restapi.innerHTML = ''; // Clear previous content
@@ -48,16 +49,17 @@
         return content.split(/\s+/).slice(0, words).join(" ") + '...';
     }
 
-    // Add event listeners to category buttons
+    // Add event listeners to pays buttons
     let boutons = document.querySelectorAll(".bouton_filtre");
     boutons.forEach(function (bouton) {
         bouton.addEventListener('click', function () {
             let categorie = bouton.innerText;
             fetchData(categorie);
+            console.log(categorie);
         });
     });
 
-    // Fetch initial data (category 3 by default)
+    // Fetch initial data (pays 3 by default)
     fetchData("France");
 })();
 

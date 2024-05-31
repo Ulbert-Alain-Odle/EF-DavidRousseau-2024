@@ -20,14 +20,14 @@ function eddym_enqueue()
 // wp_enqueue_scripts // le hook
 
 $version_css = filemtime(plugin_dir_path( __FILE__ ) . "style.css");
-$version_js = filemtime(plugin_dir_path(__FILE__) . "js/voyage.js");
+$version_js = filemtime(plugin_dir_path(__FILE__) . "js/pays.js");
 wp_enqueue_style(   'em_plugin_voyage_css',
                      plugin_dir_url(__FILE__) . "style.css",
                      array(),
                      $version_css);
 
 wp_enqueue_script(  'em_plugin_voyage_js',
-                    plugin_dir_url(__FILE__) ."js/voyage.js",
+                    plugin_dir_url(__FILE__) ."js/pays.js",
                     array(),
                     $version_js,
                     true);
@@ -37,7 +37,7 @@ add_action('wp_enqueue_scripts', 'eddym_enqueue');
 function creation_destinations_pays(){
     $contenu =
     '
-    <form class="boutons_filtre_pays">
+    <div class="boutons_filtre_pays">
         <button class="bouton_filtre">France</button>
         <button class="bouton_filtre">État-Unis</button>
         <button class="bouton_filtre">Canada</button>
@@ -52,7 +52,7 @@ function creation_destinations_pays(){
         <button class="bouton_filtre">Chine</button>
         <button class="bouton_filtre">Grèce</button>
         <button class="bouton_filtre">Suisse</button>
-    </form>
+    </div>
     
     <div class="contenu__restapi__pays">
     </div>';
