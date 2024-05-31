@@ -17,9 +17,9 @@
             .then(function (data) {
                 console.log(data);
                 console.log(pays);
-                let restapi = document.querySelector(".contenu__restapi__pays");
+                let restapiPays = document.querySelector(".contenu__restapi__pays");
                 //let restapiTitle = document.querySelector(".rest-API-title")
-                restapi.innerHTML = ''; // Clear previous content
+                restapiPays.innerHTML = ''; // Clear previous content
                 data.forEach(function (article) {
                   console.log(article.acf+" "+article.data);
                     let titre = article.title.rendered;
@@ -29,14 +29,16 @@
 
                     contenu = truncateContent(contenu, 10);
                     let carte = document.createElement("div");
-                    carte.classList.add("restapi__carte");
-                    carte.classList.add("carte");
+                    carte.classList.add("restapi__carte__pays");
+                    //carte.classList.add("carte");
                     carte.innerHTML = `
-                        <h2>${titre}</h2>
+                        <h2><a href="${lien}">${titre}</a</h2>
+                        <div class="contenu__restapi__pays">
                         <p>${contenu}</p>
-                        <a href="${lien}"> En savoir plus</a>
+                        </div>
+                        
                     `;
-                    restapi.appendChild(carte);
+                    restapiPays.appendChild(carte);
                 });
             })
             .catch(function (error) {
