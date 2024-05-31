@@ -1,10 +1,9 @@
 (function () {
-    console.log("rest API_pays")
+    console.log("rest API_pays");
 
     // Function to fetch data based on category
-    // get toute les postes qui on la variable pays dans leur nom
     function fetchData(pays) {
-        let url = `https://gftnth00.mywhc.ca/tim24/wp-json/wp/v2/posts?search=${pays}`;
+        let url = `https://gftnth00.mywhc.ca/tim24/wp-json/wp/v2/posts?search=${pays}&_embed`;
         fetch(url)
             .then(function (response) {
                 if (!response.ok) {
@@ -18,34 +17,28 @@
                 console.log(data);
                 console.log(pays);
                 let restapiPays = document.querySelector(".contenu__restapi__pays");
-                //let restapiTitle = document.querySelector(".rest-API-title")
                 restapiPays.innerHTML = ''; // Clear previous content
                 data.forEach(function (article) {
-                  console.log(article.acf+" "+article.data);
+                    console.log(article.acf + " " + article.data);
                     let titre = article.title.rendered;
                     let contenu = article.content.rendered;
                     let lien = article.link;
-                    //let tempMin = article.acf && article.acf.temperature_minimum ? article.acf.temperature_minimum : 'Aucune temp disponible';
+                    //contenu = truncateContent(contenu, 10);
 
-                    contenu = truncateContent(contenu, 10);
                     let carte = document.createElement("div");
                     carte.classList.add("restapi__carte__pays");
-                    //carte.classList.add("carte");
 
-                    if ( has_post_thumbnail() ) {
-                        $img = the_post_thumbnail();
-                    }else{
-                        $img = '<img src="https://gftnth00.mywhc.ca/tim24/wp-content/uploads/2021/04/paris.jpg" alt="paris">';
-                    
-                    }
+                    // Obtenir le thumbnail de l'article, ou utiliser une image par défaut
+                    let $img = article._embedded && article._embedded['wp:featuredmedia'] 
+                        ? article._embedded['wp:featuredmedia'][0].source_url 
+                        : 'https://gftnth00.mywhc.ca/tim24/wp-content/uploads/2021/06/placeholder.png';
 
                     carte.innerHTML = `
-                        <h2><a href="${lien}">${titre}</a</h2>
+                        <h2><a href="${lien}">${titre}</a></h2>
                         <div class="contenu__restapi__pays">
-                        ${$img}
-                        <p>${contenu}</p>
+                            <img src="${$img}" alt="Thumbnail de l'article" class="thumbnail">
+                            <p>${contenu}</p>
                         </div>
-                        
                     `;
                     restapiPays.appendChild(carte);
                 });
@@ -55,7 +48,7 @@
             });
     }
 
-    // Function to truncate content by chat gpt
+    // Function to truncate content
     function truncateContent(content, words) {
         return content.split(/\s+/).slice(0, words).join(" ") + '...';
     }
@@ -73,4 +66,3 @@
     // Fetch initial data (pays 3 by default)
     fetchData("France");
 })();
-
